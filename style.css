@@ -1,0 +1,125 @@
+/* Fonte (mantive como estava) */
+@font-face {
+  font-family: 'Rawline';
+  src: url('fonts/rawline-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Rawline';
+  src: url('fonts/rawline-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Reset básico para layout previsível */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Estilo base da página */
+body {
+  margin: 0;
+  font-family: 'Rawline', sans-serif;
+  color: #111;
+  text-align: center;
+  background: #fff;
+}
+
+/* Cabeçalho: agora sem altura fixa */
+.hero {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.cabecalho-img {
+  width: 100%;
+  height: auto;     /* mantém a proporção: imagem sempre inteira */
+  display: block;
+}
+
+/* Logo no fluxo normal, sem absolute */
+.logo-topo {
+  display: block;
+  margin: 24px auto 8px;            /* centraliza e espaça */
+  width: min(40vw, 320px);          /* responsivo: até 320px em telas grandes */
+  height: auto;
+}
+
+/* Ícones centralizados, em linha e com quebra automática quando necessário */
+.icones {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;                   /* quebra de linha automática */
+  gap: 20px 36px;                    /* espaçamento entre itens (linha x coluna) */
+  margin: 16px auto 48px;
+  padding: 0 16px;
+  max-width: 1000px;                 /* limita largura do conjunto */
+}
+
+/* Item sem margens extras */
+.icone-item {
+  margin: 0;
+}
+
+/* Link: ícone + texto lado a lado em telas grandes */
+.icone-item a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #111;
+  font-size: clamp(16px, 2vw, 22px);     /* escala com a viewport */
+}
+
+/* Tamanho do ícone responsivo */
+.icone-item a img {
+  width: clamp(45px, 5vw, 56px);         /* 32–56px conforme a tela */
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.icone-item a img:hover {
+  transform: scale(1.06);
+}
+
+/* Texto dos links: visível por padrão (desktop/tablet) */
+.icone-item a span {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* ===== Ajustes para telas menores (smartphones) ===== */
+@media (max-width: 768px) {
+  .icone-item a img {
+    width: clamp(40px, 12vw, 80px);   /* aumenta o tamanho do ícone */
+    margin-right: 0;
+  }
+
+  .icone-item a span {
+    display: none; /* mantém só o ícone */
+  }
+}
+
+  .logo-topo {
+    width: min(55vw, 300px);
+    margin: 16px auto 8px;
+  }
+
+  .icones {
+    gap: 16px 24px;
+    margin-bottom: 32px;
+  }
+}
+
+/* ===== Acessibilidade opcional: foco visível ===== */
+.icone-item a:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 4px;
+}
+
+
+
